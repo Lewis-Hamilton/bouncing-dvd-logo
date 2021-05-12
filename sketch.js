@@ -5,6 +5,8 @@ let xspeed;
 let yspeed;
 
 let dvd;
+let imageWidth;
+let imageHeight;
 
 let r, g, b;
 
@@ -13,7 +15,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1080, 2340);
   
   x = random(width);
   y = random(height);
@@ -29,17 +31,18 @@ function pickColor() {
 }
 
 function draw() {
+  imageWidth = 250;
+  imageHeight = 150;
   background(0);
   tint(r, g, b);
-  image(dvd, x, y)
+  image(dvd, x, y , imageWidth, imageHeight)
   
   x = x + xspeed;
   y = y + yspeed;
-  
 
-    if (x + dvd.width >= width) {
+    if (x + imageWidth >= width) {
     xspeed = -xspeed;
-      x = width - dvd.width;
+      x = width - imageWidth;
       pickColor();
   } else if (x <= 0) {
     xspeed = -xspeed;
@@ -47,9 +50,9 @@ function draw() {
       pickColor();
   }
 
-  if (y + dvd.height >= height) {
+  if (y + imageHeight >= height) {
     yspeed = -yspeed;
-    y = height - dvd.height;
+    y = height - imageHeight;
     pickColor();
   } else if (y <= 0) {
     yspeed = -yspeed;
