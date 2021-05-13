@@ -4,10 +4,7 @@ let y;
 let xspeed;
 let yspeed;
 
-let logo1;
-let logo2;
-let logo3;
-let logo4;
+let logo
 let dvd;
 let imageWidth;
 let imageHeight;
@@ -20,10 +17,10 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  logo1 = new bounce();
-  logo2 = new bounce();
-    logo3 = new bounce();
-  logo4 = new bounce();
+  logo = [1, 2, 3, 4]
+  for (var i = 0; i < 4; i++) {
+    logo[i] = new bounce();
+  }
 }
   
 class bounce {
@@ -72,8 +69,7 @@ function pickColor() {
 
 function draw() {
   background(0);
-  logo1.move();
-  logo2.move();
-    logo3.move();
-  logo4.move();
+  for (var i = 0; i < 4; i++) {
+    logo[i].move();
+  }
 }
